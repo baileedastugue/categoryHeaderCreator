@@ -1,8 +1,9 @@
 import React from 'react';
+import Typography from '@mui/material/Typography';
 
 const PrimaryHeading = (props) => {
   return (
-    <h1 className='heading-primary'>{props.children}</h1>
+    <Typography component='h1' variant='h1'>{props.children}</Typography>
   )
 }
 

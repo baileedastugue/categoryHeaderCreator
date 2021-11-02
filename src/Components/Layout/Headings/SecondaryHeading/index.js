@@ -1,8 +1,9 @@
 import React from 'react';
+import Typography from '@mui/material/Typography';
 
 const SecondaryHeading = (props) => {
   return (
-    <h2 className='header-secondary'>{props.children}</h2>
+    <Typography variant='h2' component='h2'>{props.children}</Typography>
   )
 }
 

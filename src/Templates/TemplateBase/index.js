@@ -1,7 +1,7 @@
 /* eslint-disable no-lone-blocks */
 // import React from 'react';
 
-const TemplateOne = (props) => {
+const TemplateBase = (props) => {
 
 let layoutOptions = props.template.options.layoutOptions;
 
@@ -229,9 +229,4 @@ if (props.finePrintData.finePrintDesktop) {
   )
 }
 
-export default TemplateOne;
-
-{/* 
-${props.mobile ? (<h1 className='view-mobile'>${props.mobile}</h1>) : (<></>)}
-        ${props.desktop ? (<h1 className='view-desktop'>${props.desktop}</h1>) : (<></>)}
-        ${props.both ? (<h1>${props.both}</h1>) : (<></>)} */}
+export default TemplateBase;

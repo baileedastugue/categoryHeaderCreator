@@ -1,8 +1,9 @@
 import React from 'react';
+import Typography from '@mui/material/Typography';
 
 const TertiaryHeading = (props) => {
   return (
-    <h3 className='heading-tertiary'>{props.children}</h3>
+    <Typography variant='h3' component='h3'>{props.children}</Typography>
   )
 }
 
