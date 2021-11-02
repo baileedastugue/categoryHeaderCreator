@@ -1,0 +1,26 @@
+{
+  "id": 3,
+  "name": "Template Three",
+  "class": "template-3",
+  "about": "For both mobile, the image is positioned to the right or left with the text on the other side. For desktop, the image is positioned behind the text.",
+  "options": {
+    "layoutOptions": {
+      "image": ["right", "left"],
+      "textAlignment": ["left", "right", "center"],
+      "textPosition": ["left", "right", "center"]
+    },
+    "imageOptions": ["mobileImageUrl", "desktopImageUrl"],
+    "textOptions": {
+      "primaryText": ["mobile", "desktop", "both"],
+      "secondaryText": ["mobile", "desktop", "both"],
+      "finePrint": ["mobile", "desktop", "both"]
+    },
+    "colorOptions": {
+      "backgroundColor": "F7F0EB",
+      "fontColor": {
+        "selection": ["Dark Grey", "White", "Black"],
+        "hex": ["#3a3a3a", "#ffffff", "#000000"]
+      }
+    } 
+  }
+}
