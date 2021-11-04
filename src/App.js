@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 // import './App.css';
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import PrimaryHeading from "./Components/Layout/Headings/PrimaryHeading";
 import SecondaryHeading from "./Components/Layout/Headings/SecondaryHeading";
 import TemplateSelection from "./Components/Choices/Template/TemplateSelection";
@@ -58,9 +58,9 @@ function App() {
         <PrimaryHeading>Create a Category Header</PrimaryHeading>
         <TemplateSelection setActiveTemplate={activatingTemplate} />
         {JSON.stringify(template) !== "{}" ? (
-          <>
+          <Fragment>
             <SecondaryHeading>{template.name}</SecondaryHeading>
-            {template.options.layoutOptions.textAligment ? (
+            {/* {template.options.layoutOptions.textAligment ? (
               <>render text alignment options</>
             ) : (
               <>do not render text alignment options</>
@@ -71,7 +71,7 @@ function App() {
             ) : (
               <>do not render text position options</>
             )}
-            <br />
+            <br /> */}
             <Text
               setPrimaryText={setPrimaryText}
               setSecondaryText={setSecondaryText}
@@ -92,7 +92,7 @@ function App() {
                 desktopImg={desktopURLData}
               />
             </div>
-          </>
+          </Fragment>
         ) : (
           <div></div>
         )}
