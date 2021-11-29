@@ -1,52 +1,64 @@
 import React, { Fragment } from "react";
 import TextOption from "../TextOption";
-import { Checkbox, FormGroup, FormControlLabel } from "@mui/material";
+import { Checkbox, FormGroup, FormControlLabel, Grid } from "@mui/material";
 
 const TextLogic = ({
-  textChange,
-  both,
-  mobile,
-  desktop,
+  onSameChange,
+  bothValue,
+  mobileValue,
+  desktopValue,
   onChange,
-  sameText,
-  labelText
+  sameTextChecked,
+  labelText,
+  mobileName,
+  desktopName,
+  bothName,
 }) => {
   return (
-    <Fragment>
-    <FormGroup>
-        <FormControlLabel
-          onChange={textChange}
-          control={<Checkbox />}
-          label={`Same ${labelText} for Mobile and Desktop?`}
-        />
-      </FormGroup>
-      {sameText ? (
-        <TextOption
-          name="both"
-          value={both}
-          textView="Mobile and Desktop"
-          onChange={onChange}
-          labelText={labelText}
-        />
+    <Grid container spacing={2} mb={2}>
+      <Grid item xs={12}>
+        <FormGroup>
+          <FormControlLabel
+            checked={sameTextChecked}
+            onChange={onSameChange}
+            control={<Checkbox />}
+            label={`Same ${labelText} for Mobile and Desktop?`}
+          />
+        </FormGroup>
+      </Grid>
+      {sameTextChecked ? (
+        <Grid item xs={12}>
+          <TextOption
+            name={bothName}
+            value={bothValue}
+            textView="Mobile and Desktop"
+            onChange={onChange}
+            labelText={labelText}
+          />
+        </Grid>
       ) : (
         <Fragment>
-          <TextOption
-            name="mobile"
-            value={mobile}
-            textView="Mobile"
-            onChange={onChange}
-            labelText={labelText}
-          />
-          <TextOption
-            name="desktop"
-            value={desktop}
-            textView="Desktop"
-            onChange={onChange}
-            labelText={labelText}
-          />
+          <Grid item xs={6}>
+            <TextOption
+              name={mobileName}
+              value={mobileValue}
+              textView="Mobile"
+              onChange={onChange}
+              labelText={labelText}
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <TextOption
+              name={desktopName}
+              value={desktopValue}
+              textView="Desktop"
+              onChange={onChange}
+              labelText={labelText}
+            />
+          </Grid>
         </Fragment>
       )}
-      </Fragment>
+    </Grid>
   );
 };
 

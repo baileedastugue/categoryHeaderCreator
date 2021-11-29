@@ -7,82 +7,74 @@ const Text = ({ setPrimaryText, setSecondaryText, setFinePrintText }) => {
     primaryDesktop: "",
     primaryBoth: "",
   });
-  const [secondaryTextData, setSecondaryTextData] = useState({
-    secondaryMobile: "",
-    secondaryDesktop: "",
-    secondaryBoth: "",
-  });
-  const [finePrintTextData, setFinePrintTextData] = useState({
-    finePrintMobile: "",
-    finePrintDesktop: "",
-    finePrintBoth: "",
-  });
-
-  const [samePrimaryText, setSamePrimaryText] = useState(false);
-  const [sameSecondaryText, setSameSecondaryText] = useState(false);
-  const [sameFinePrintText, setSameFinePrintText] = useState(false);
-
-  useEffect(() => {
-    setPrimaryText(primaryTextData);
-  });
-  useEffect(() => {
-    setSecondaryText(secondaryTextData);
-  });
-  useEffect(() => {
-    setFinePrintText(finePrintTextData);
-  });
-
   const { primaryMobile, primaryDesktop, primaryBoth } = primaryTextData;
-  const { secondaryMobile, secondaryDesktop, secondaryBoth } =
-    secondaryTextData;
-  const { finePrintMobile, finePrintDesktop, finePrintBoth } =
-    finePrintTextData;
-
   const onPrimaryChange = (event) => {
     setPrimaryTextData({
       ...primaryTextData,
       [event.target.name]: event.target.value,
     });
   };
-
-  const primaryTextChange = () => {
-    setSamePrimaryText(!samePrimaryText);
+  const [samePrimaryTextChecked, setSamePrimaryTextChecked] = useState(false);
+  useEffect(() => {
+    setPrimaryText(primaryTextData);
+  });
+  const handleSamePrimaryTextChange = () => {
+    setSamePrimaryTextChecked(!samePrimaryTextChecked);
     setPrimaryTextData({
-      ...primaryTextData,
       primaryMobile: "",
       primaryDesktop: "",
       primaryBoth: "",
     });
   };
 
+  const [secondaryTextData, setSecondaryTextData] = useState({
+    secondaryMobile: "",
+    secondaryDesktop: "",
+    secondaryBoth: "",
+  });
+  const { secondaryMobile, secondaryDesktop, secondaryBoth } =
+    secondaryTextData;
   const onSecondaryChange = (event) => {
     setSecondaryTextData({
       ...secondaryTextData,
       [event.target.name]: event.target.value,
     });
   };
-
-  const secondaryTextChange = () => {
-    setSameSecondaryText(!sameSecondaryText);
+  const [sameSecondaryTextChecked, setSameSecondaryTextChecked] =
+    useState(false);
+  useEffect(() => {
+    setSecondaryText(secondaryTextData);
+  });
+  const handleSameSecondaryTextChange = () => {
+    setSameSecondaryTextChecked(!sameSecondaryTextChecked);
     setSecondaryTextData({
-      ...secondaryTextData,
       secondaryMobile: "",
       secondaryDesktop: "",
       secondaryBoth: "",
     });
   };
 
+  const [finePrintData, setFinePrintData] = useState({
+    finePrintMobile: "",
+    finePrintDesktop: "",
+    finePrintBoth: "",
+  });
+  const { finePrintMobile, finePrintDesktop, finePrintBoth } =
+    finePrintData;
   const onFinePrintChange = (event) => {
-    setFinePrintTextData({
-      ...finePrintTextData,
+    setFinePrintData({
+      ...finePrintData,
       [event.target.name]: event.target.value,
     });
   };
-
-  const finePrintTextChange = () => {
-    setSameFinePrintText(!sameFinePrintText);
-    setFinePrintTextData({
-      ...finePrintTextData,
+  const [sameFinePrintChecked, setSameFinePrintChecked] =
+    useState(false);
+  useEffect(() => {
+    setFinePrintText(finePrintData);
+  });
+  const handleSameFinePrintChange = () => {
+    setSameFinePrintChecked(!sameFinePrintChecked);
+    setFinePrintData({
       finePrintMobile: "",
       finePrintDesktop: "",
       finePrintBoth: "",
@@ -92,53 +84,43 @@ const Text = ({ setPrimaryText, setSecondaryText, setFinePrintText }) => {
   return (
     <Fragment>
       <TextLogic
-        textChange={primaryTextChange}
-        both={primaryBoth}
-        mobile={primaryMobile}
-        desktop={primaryDesktop}
-        onChange={onPrimaryChange}
+        mobileName="primaryMobile"
+        desktopName="primaryDesktop"
+        bothName="primaryBoth"
         labelText="Primary Text"
-        sameText={samePrimaryText}
+        sameTextChecked={samePrimaryTextChecked}
+        onSameChange={handleSamePrimaryTextChange}
+        mobileValue={primaryMobile}
+        desktopValue={primaryDesktop}
+        bothValue={primaryBoth}
+        onChange={(event) => onPrimaryChange(event)}
       />
       <TextLogic
-        textChange={secondaryTextChange}
-        both={secondaryBoth}
-        mobile={secondaryMobile}
-        desktop={secondaryDesktop}
-        onChange={onSecondaryChange}
+        mobileName="secondaryMobile"
+        desktopName="secondaryDesktop"
+        bothName="secondaryBoth"
         labelText="Secondary Text"
-        sameText={sameSecondaryText}
+        sameTextChecked={sameSecondaryTextChecked}
+        onSameChange={handleSameSecondaryTextChange}
+        mobileValue={secondaryMobile}
+        desktopValue={secondaryDesktop}
+        bothValue={secondaryBoth}
+        onChange={(event) => onSecondaryChange(event)}
       />
-      <TextLogic
-        textChange={finePrintTextChange}
-        both={finePrintBoth}
-        mobile={finePrintMobile}
-        desktop={finePrintDesktop}
-        onChange={onFinePrintChange}
+            <TextLogic
+        mobileName="finePrintMobile"
+        desktopName="finePrintDesktop"
+        bothName="finePrintBoth"
         labelText="Fine Print"
-        sameText={sameFinePrintText}
+        sameTextChecked={sameFinePrintChecked}
+        onSameChange={handleSameFinePrintChange}
+        mobileValue={finePrintMobile}
+        desktopValue={finePrintDesktop}
+        bothValue={finePrintBoth}
+        onChange={(event) => onFinePrintChange(event)}
       />
     </Fragment>
   );
 };
 
 export default Text;
-
-// template one
-// css
-// template two
-// css
-// template three
-// css
-// text align classes:
-// left
-// right
-// center
-// is the mobile and desktop text the same?
-// yes
-// primary text
-// no
-// primary text mobile
-// primary text desktop
-// pass text to template js
-// convert text to markdown file that can be copied and pasted
