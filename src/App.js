@@ -4,7 +4,7 @@ import React, { useState, Fragment } from "react";
 import PrimaryHeading from "./Components/Layout/Headings/PrimaryHeading";
 import SecondaryHeading from "./Components/Layout/Headings/SecondaryHeading";
 import TemplateSelection from "./Components/Choices/Template/TemplateSelection";
-import TemplateBase from "./Templates/TemplateBase";
+import TemplateBase from "./Components/Templates/TemplateBase";
 import Text from "./Components/Choices/Text";
 import ImageChoice from "./Components/Choices/ImageChoice";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -60,18 +60,6 @@ function App() {
         {JSON.stringify(template) !== "{}" ? (
           <Fragment>
             <SecondaryHeading>{template.name}</SecondaryHeading>
-            {/* {template.options.layoutOptions.textAligment ? (
-              <>render text alignment options</>
-            ) : (
-              <>do not render text alignment options</>
-            )}
-            <br />
-            {template.options.layoutOptions.textPosition ? (
-              <>render text position options</>
-            ) : (
-              <>do not render text position options</>
-            )}
-            <br /> */}
             <Text
               setPrimaryText={setPrimaryText}
               setSecondaryText={setSecondaryText}

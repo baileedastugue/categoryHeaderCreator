@@ -3,7 +3,6 @@ import react, {useEffect, useState} from 'react';
 const ImagePosition = ({ props }) => {
   const layoutOps = props.options.layoutOptions;
   const [imagePosition, setImagePosition] = useState("right")
-  console.log(layoutOps);
   const onChange = (id) => {
     setImagePosition(id)
   }

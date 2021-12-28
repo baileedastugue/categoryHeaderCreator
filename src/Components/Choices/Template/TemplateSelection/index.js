@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import templateData from "../../../../Templates/TemplateData/templateData";
+import templateData from "../../../Templates/TemplateData/templateData";
 import TemplateCard from "../TemplateCard";
 import { Grid } from "@mui/material";
 
@@ -26,9 +26,8 @@ const TemplateSelection = ({ setActiveTemplate }) => {
       spacing={2} 
     >
       {templateData.map((temp) => (
-        <Grid item xs={4} >
+        <Grid item xs={4} key={temp.id}>
           <TemplateCard
-            key={temp.id}
             heading={temp.name}
             about={temp.about}
             onClick={(event) => chooseTemplate(event, temp)}

@@ -11,8 +11,6 @@ let finePrintText = '';
 let mobileImgURL = props.mobileImg;
 let desktopImgURL = props.desktopImg;
 
-console.log(props);
-
 let layoutImageOptions;
 
 if (layoutOptions.image[0]) {

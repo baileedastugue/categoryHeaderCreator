@@ -8,7 +8,7 @@ const TextOption = (props) => {
       fullWidth
       id="outlined-basic"
       label={`${props.labelText} for ${props.textView}`}
-      variant="outlined"
+      variant="filled"
       type="text"
       name={props.name}
       value={props.value}
